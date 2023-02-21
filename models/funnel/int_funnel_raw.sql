@@ -63,3 +63,5 @@ select
     IMPRESSIONS
 from {{ ref('stg_funnel_raw') }}
 where DATA_SOURCE_TYPE = 'linkedin_api'
+
+order by DATE DESC
