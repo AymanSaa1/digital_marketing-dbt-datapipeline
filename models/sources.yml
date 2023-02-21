@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: funnel_data
+    loader: Snowflake
+    schema: FUNNEL__NFIBIC_RNAEIROPEW9F
+    database: SHR_EXT_FUNNEL
+    freshness: # default freshness
+      warn_after: {count: 12, period: hour}
+      error_after: {count: 24, period: hour}
+    tables:
+      - name: FUNNEL_DATA
+        tags: ['Facebook', 'Google Ads', 'Linkedin', 'DV360']
+        meta:
+          contains_pii: false
+          owner : "Ayman Saadallah"
